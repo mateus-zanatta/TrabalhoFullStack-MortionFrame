@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Cria a classe "font-pixel" (fonte carregada no index.html) */
+@theme {
+  --font-pixel: "Press Start 2P", ui-monospace, monospace;
+}
+
+body {
+  background-color: #f1f5f9;
+}

@@ -1,0 +1,39 @@
+generator client {
+  provider            = "prisma-client"
+  output              = "../generated/prisma"
+  importFileExtension = "js"    // imports com .js no código gerado (necessário na Vercel)
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Tipo {
+  id             Int          @id @default(autoincrement())
+  nome           String       @db.VarChar(20) @unique
+  cor            String       @db.VarChar(7)       // cor em hexadecimal. Ex: #EE8130
+  pokemons       Pokemon[]
+  @@map("tipos")
+}
+
+model Pokemon {
+  id             Int          @id                   // número na Pokédex (1 a 151)
+  nome           String       @db.VarChar(30)
+  categoria      String       @db.VarChar(30)
+  descricao      String       @db.VarChar(255)
+  altura         Decimal      @db.Decimal(4, 1)     // em metros
+  peso           Decimal      @db.Decimal(5, 1)     // em kg
+  imagem         String                             // arte oficial (URL)
+  imagemShiny    String                             // arte oficial shiny (URL)
+  sprite         String                             // sprite animado .gif (URL)
+  hp             Int          @db.SmallInt
+  ataque         Int          @db.SmallInt
+  defesa         Int          @db.SmallInt
+  ataqueEspecial Int          @db.SmallInt
+  defesaEspecial Int          @db.SmallInt
+  velocidade     Int          @db.SmallInt
+  lendario       Boolean      @default(false)
+  tipos          Tipo[]                             // relacionamento N:N
+  createdAt      DateTime     @default(now())
+  @@map("pokemons")
+}
