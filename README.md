@@ -4,7 +4,7 @@
 Programação Full Stack – Prof. Edécio Fernando Iepsen
 Trabalho #2 – Pacotes Extras · Tecnologia: **6. React Animations (Framer Motion)**
 
-Integrantes: Mateus Zanatta e _[nome da dupla]_
+Integrantes: Mateus Zanatta e Maiara Torchelsen
 
 ![Pokédex Motion](apresentacao/prints/pokedex.jpg)
 
